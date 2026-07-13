@@ -12,6 +12,9 @@ test('Open Planned Project Task via Global Search and verify detail page element
   await test.step('Assert visible — Verify global search input is visible', async () => {
     await homePage.expectGlobalSearchVisible();
   });
+  await test.step('Wait (timeout) — Wait for page to load', async () => {
+    await page.waitForTimeout(5000);
+  });
   await test.step('Fill — Enter project name into search', async () => {
     await homePage.fillSearch('Perry\'s Restaurants, - Q-453446 - Ready Fixed Fee Implementation');
   });

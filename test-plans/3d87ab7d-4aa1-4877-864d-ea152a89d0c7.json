@@ -112,6 +112,12 @@
             "pageObjectMethod": "expectGlobalSearchVisible"
           },
           {
+            "id": "step18",
+            "action": "wait",
+            "targetDescription": "Wait for page to load",
+            "value": "5000"
+          },
+          {
             "id": "s4",
             "action": "fill",
             "targetDescription": "Enter project name into search",
