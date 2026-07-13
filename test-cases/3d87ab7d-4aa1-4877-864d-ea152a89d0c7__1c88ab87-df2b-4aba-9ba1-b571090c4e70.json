@@ -1,0 +1,135 @@
+{
+  "id": "1c88ab87-df2b-4aba-9ba1-b571090c4e70",
+  "testPlanId": "3d87ab7d-4aa1-4877-864d-ea152a89d0c7",
+  "requirementId": "91acd319-cc6b-4b76-9518-b8babe4b3aa3",
+  "suiteName": "Certinia PSA - Start Planned Project Task (Salesforce Lightning)",
+  "case": {
+    "id": "1c88ab87-df2b-4aba-9ba1-b571090c4e70",
+    "title": "Open Planned Project Task via Global Search and verify detail page elements before starting",
+    "priority": "P1",
+    "platforms": [
+      "chrome"
+    ],
+    "preconditions": [],
+    "steps": [
+      {
+        "id": "s1",
+        "action": "openUrl",
+        "targetDescription": "Open Salesforce Lightning Home",
+        "value": "https://ukgsf--stest.sandbox.lightning.force.com/lightning/page/home"
+      },
+      {
+        "id": "s2",
+        "action": "assertVisible",
+        "targetDescription": "Verify global search input is visible",
+        "screenName": "HomePage",
+        "pageObjectMethod": "expectSearchVisible"
+      },
+      {
+        "id": "s3",
+        "action": "tap",
+        "targetDescription": "Focus global search",
+        "screenName": "HomePage",
+        "pageObjectMethod": "clickGlobalSearch"
+      },
+      {
+        "id": "s4",
+        "action": "fill",
+        "targetDescription": "Enter project name into search",
+        "screenName": "HomePage",
+        "pageObjectMethod": "fillSearch",
+        "value": "Perry's Restaurants, - Q-453446 - Ready Fixed Fee Implementation"
+      },
+      {
+        "id": "s5",
+        "action": "wait",
+        "targetDescription": "Wait for search suggestions/results",
+        "value": "1500"
+      },
+      {
+        "id": "s6",
+        "action": "tap",
+        "targetDescription": "Open project record from search results",
+        "locatorHint": "a:has-text(\"Perry's Restaurants, - Q-453446 - Ready Fixed Fee Implementation\")"
+      },
+      {
+        "id": "s7",
+        "action": "assertVisible",
+        "targetDescription": "Verify Show All in related lists is visible",
+        "screenName": "ProjectTaskPage",
+        "pageObjectMethod": "expectShowAllVisible"
+      },
+      {
+        "id": "s8",
+        "action": "tap",
+        "targetDescription": "Click Show All in related lists",
+        "screenName": "ProjectTaskPage",
+        "pageObjectMethod": "clickShowAll"
+      },
+      {
+        "id": "s9",
+        "action": "assertVisible",
+        "targetDescription": "Verify Project Tasks link visible",
+        "screenName": "ProjectTaskPage",
+        "pageObjectMethod": "expectProjectTasksVisible"
+      },
+      {
+        "id": "s10",
+        "action": "tap",
+        "targetDescription": "Open Project Tasks related list",
+        "screenName": "ProjectTaskPage",
+        "pageObjectMethod": "clickProjectTasks"
+      },
+      {
+        "id": "s11",
+        "action": "tap",
+        "targetDescription": "Open a Project Task where Status = Planned",
+        "locatorHint": "table tr:has(td:has-text(\"Planned\")) a[role=\"link\"]"
+      },
+      {
+        "id": "s12",
+        "action": "assertVisible",
+        "targetDescription": "Verify Project Task detail page is visible (project name present)",
+        "screenName": "ProjectTaskDetailPage",
+        "pageObjectMethod": "expectProjectNameVisible"
+      },
+      {
+        "id": "s13",
+        "action": "assertVisible",
+        "targetDescription": "Verify Status = Planned is shown",
+        "screenName": "ProjectTaskDetailPage",
+        "pageObjectMethod": "expectPlannedVisible"
+      },
+      {
+        "id": "s14",
+        "action": "assertVisible",
+        "targetDescription": "Verify Start button is visible",
+        "screenName": "ProjectTaskDetailPage",
+        "pageObjectMethod": "expectStartVisible"
+      },
+      {
+        "id": "s15",
+        "action": "assertEnabled",
+        "targetDescription": "Verify Start button is enabled",
+        "screenName": "ProjectTaskDetailPage",
+        "pageObjectMethod": "expectStartEnabled"
+      },
+      {
+        "id": "s16",
+        "action": "assertUnchecked",
+        "targetDescription": "Verify 'Started' checkbox is currently unchecked",
+        "locatorHint": "[role=\"checkbox\"][aria-label=\"Started\"]"
+      },
+      {
+        "id": "s17",
+        "action": "assertVisible",
+        "targetDescription": "Verify 'Actual Start Date' field is present",
+        "locatorHint": "records-record-layout-item:has(.slds-form-element__label:has-text(\"Actual Start Date\"))"
+      }
+    ],
+    "tags": [
+      "@e2e",
+      "@regression"
+    ]
+  }
+}

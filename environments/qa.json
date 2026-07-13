@@ -1,7 +1,7 @@
 {
   "name": "qa",
   "slug": "qa",
-  "baseURL": " https://ukgsf--stest.sandbox.lightning.force.com/lightning/page/home",
+  "baseURL": "https://ukgsf--stest.sandbox.lightning.force.com/lightning/page/home",
   "browser": "chromium",
   "headless": true,
   "timeout": 30000,
