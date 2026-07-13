@@ -2,7 +2,7 @@ import { test, expect } from '@support/fixtures';
 import env from '@support/env';
 import testData from '@testdata/test-data.json';
 
-test('Open Planned Project Task via Global Search and verify detail page elements before starting', { tag: ["@e2e","@regression","@P1","@case-1c88ab87-df2b-4aba-9ba1-b571090c4e70","@req-91acd319-cc6b-4b76-9518-b8babe4b3aa3"] }, async ({ page, homePage, projectTaskPage, projectTaskDetailPage }) => {
+test('Open Planned Project Task via Global Search and verify detail page elements before starting', { tag: ["@e2e", "@regression", "@P1", "@case-1c88ab87-df2b-4aba-9ba1-b571090c4e70", "@req-91acd319-cc6b-4b76-9518-b8babe4b3aa3"] }, async ({ page, homePage, projectTaskPage, projectTaskDetailPage }) => {
   await test.step('Navigate to URL — Open Salesforce Lightning Home', async () => {
     await page.goto('https://ukgsf--stest.sandbox.lightning.force.com/lightning/page/home');
   });
@@ -38,7 +38,7 @@ test('Open Planned Project Task via Global Search and verify detail page element
   });
   await test.step('Open a Project Task where Status = Planned', async () => {
     await page.locator('tr:has(td:has-text("Planned")) th[data-label="Project Task Name"]').nth(1).click();
-    await page.await page.waitForTimeout(2000);
+    await page.waitForTimeout(2000);
   });
   await test.step('Verify Project Task detail page is visible (project name present)', async () => {
     await expect(page.getByRole('link', { name: "Perry's Restaurants, - Q-" })).toBeVisible();
@@ -57,20 +57,20 @@ test('Open Planned Project Task via Global Search and verify detail page element
   });
 });
 
-test('Start a Planned Project Task and verify updates (Status, Started checkbox, Actual Start Date)', { tag: ["@e2e","@regression","@P0","@case-1f9516fd-2751-46e0-8491-ea55b4880160","@req-91acd319-cc6b-4b76-9518-b8babe4b3aa3"] }, async ({ page, commonFlowsPage, projectTaskDetailPage }) => {
+test('Start a Planned Project Task and verify updates (Status, Started checkbox, Actual Start Date)', { tag: ["@e2e", "@regression", "@P0", "@case-1f9516fd-2751-46e0-8491-ea55b4880160", "@req-91acd319-cc6b-4b76-9518-b8babe4b3aa3"] }, async ({ page, commonFlowsPage, projectTaskDetailPage }) => {
   const vars: Record<string, string> = {};
   await test.step('Navigate to URL — Open Salesforce Lightning Home', async () => {
     await page.goto('https://ukgsf--stest.sandbox.lightning.force.com/lightning/page/home');
   });
   await test.step('Wait for url to load', async () => {
-    await page.await page.waitForTimeout(2000);
+    await page.waitForTimeout(2000);
   });
   await test.step('Click — Navigate end-to-end to a Planned Project Task detail page (login/search/navigation encapsulated)', async () => {
     await commonFlowsPage.userJourneyTillProjectTask();
   });
   await test.step('Select row having planned status', async () => {
     await page.locator('tr:has(td:has-text("Planned")) th[data-label="Project Task Name"]').nth(1).click();
-    await page.await page.waitForTimeout(2000);
+    await page.waitForTimeout(2000);
   });
   await test.step('Click — Wait for start button to be visible', async () => {
     await projectTaskDetailPage.expectStartVisible();
