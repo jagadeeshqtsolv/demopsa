@@ -22,21 +22,21 @@
         "id": "s3",
         "action": "tap",
         "targetDescription": "Focus global search",
-        "screenName": "HomePage",
+        "screenName": "Home",
         "pageObjectMethod": "clickGlobalSearch"
       },
       {
         "id": "s2",
         "action": "assertVisible",
         "targetDescription": "Verify global search input is visible",
-        "screenName": "HomePage",
+        "screenName": "Home",
         "pageObjectMethod": "expectGlobalSearchVisible"
       },
       {
         "id": "s4",
         "action": "fill",
         "targetDescription": "Enter project name into search",
-        "screenName": "HomePage",
+        "screenName": "Home",
         "pageObjectMethod": "fillSearch",
         "value": "Perry's Restaurants, - Q-453446 - Ready Fixed Fee Implementation"
       },
@@ -49,35 +49,36 @@
       {
         "id": "s6",
         "action": "tap",
-        "targetDescription": "Open project record from search results",
-        "locatorHint": "a:has-text(\"Perry's Restaurants, - Q-453446 - Ready Fixed Fee Implementation\")"
+        "targetDescription": "Open project record from search results - Custom Code",
+        "locatorHint": "a:has-text(\"Perry's Restaurants, - Q-453446 - Ready Fixed Fee Implementation\")",
+        "customCode": "await page.getByText(\"Perry's\", { exact: true }).click();"
       },
       {
         "id": "s7",
         "action": "assertVisible",
         "targetDescription": "Verify Show All in related lists is visible",
-        "screenName": "ProjectTaskPage",
+        "screenName": "ProjectTask",
         "pageObjectMethod": "expectShowAllVisible"
       },
       {
         "id": "s8",
         "action": "tap",
         "targetDescription": "Click Show All in related lists",
-        "screenName": "ProjectTaskPage",
+        "screenName": "ProjectTask",
         "pageObjectMethod": "clickShowAll"
       },
       {
         "id": "s9",
         "action": "assertVisible",
         "targetDescription": "Verify Project Tasks link visible",
-        "screenName": "ProjectTaskPage",
+        "screenName": "ProjectTask",
         "pageObjectMethod": "expectProjectTasksVisible"
       },
       {
         "id": "s10",
         "action": "tap",
         "targetDescription": "Open Project Tasks related list",
-        "screenName": "ProjectTaskPage",
+        "screenName": "ProjectTask",
         "pageObjectMethod": "clickProjectTasks"
       },
       {
