@@ -164,7 +164,8 @@
             "id": "s11",
             "action": "tap",
             "targetDescription": "Open a Project Task where Status = Planned",
-            "locatorHint": "table tr:has(td:has-text(\"Planned\")) a[role=\"link\"]"
+            "locatorHint": "table tr:has(td:has-text(\"Planned\")) a[role=\"link\"]",
+            "customCode": "await page.locator('tr:has(td:nth-child(5):has-text(\"Planned\")) th[data-label=\"Project Task Name\"]').first().click();"
           },
           {
             "id": "s12",
