@@ -12,6 +12,7 @@ export class CommonFlowsPage {
 
   async userJourneyTillProjectTask(openSalesforceLightningHome: string = 'https://ukgsf--stest.sandbox.lightning.force.com/lightning/page/home', enterProjectNameIntoSearch: string = 'Perry\'s Restaurants, - Q-453446 - Ready Fixed Fee Implementation'): Promise<void> {
     await this.page.goto(openSalesforceLightningHome);
+    await this.page.waitForTimeout(2000);
     await this.homePage.clickGlobalSearch();
     await this.homePage.expectGlobalSearchVisible();
     await this.homePage.expectSearchVisible();
