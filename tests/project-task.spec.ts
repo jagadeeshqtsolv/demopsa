@@ -61,6 +61,9 @@ test('Start a Planned Project Task and verify updates (Status, Started checkbox,
   await test.step('Navigate to URL — Open Salesforce Lightning Home', async () => {
     await page.goto('https://ukgsf--stest.sandbox.lightning.force.com/lightning/page/home');
   });
+  await test.step('Wait for url to load', async () => {
+    await this.page.waitForLoadState('networkidle')
+  });
   await test.step('Click — Navigate end-to-end to a Planned Project Task detail page (login/search/navigation encapsulated)', async () => {
     await commonFlowsPage.userJourneyTillProjectTask();
   });

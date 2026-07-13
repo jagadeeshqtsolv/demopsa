@@ -19,6 +19,12 @@
         "value": "https://ukgsf--stest.sandbox.lightning.force.com/lightning/page/home"
       },
       {
+        "id": "step12",
+        "action": "wait",
+        "targetDescription": "Wait for url to load",
+        "customCode": "await this.page.waitForLoadState('networkidle')"
+      },
+      {
         "id": "s2",
         "action": "tap",
         "targetDescription": "Navigate end-to-end to a Planned Project Task detail page (login/search/navigation encapsulated)",
