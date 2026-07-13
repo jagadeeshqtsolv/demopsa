@@ -39,7 +39,7 @@
             "id": "step10",
             "action": "tap",
             "targetDescription": "Select row having planned status",
-            "customCode": "const locator = page.locator('tr:has(td:has-text(\"Planned\")) th[data-label=\"Project Task Name\"]').nth(1);\nawait locator.scrollIntoViewIfNeeded();\nconst elementHandle = await locator.elementHandle();\nawait page.evaluate((el) => el.click(), elementHandle);"
+            "customCode": "await page.locator('tr:has(td:has-text(\"Planned\")) th[data-label=\"Project Task Name\"]:nth-of-type(2)').click();"
           },
           {
             "id": "step11",
@@ -199,7 +199,7 @@
             "action": "tap",
             "targetDescription": "Open a Project Task where Status = Planned",
             "locatorHint": "table tr:has(td:has-text(\"Planned\")) a[role=\"link\"]",
-            "customCode": "const locator = page.locator('tr:has(td:has-text(\"Planned\")) th[data-label=\"Project Task Name\"]').nth(1);\nawait locator.scrollIntoViewIfNeeded();\nconst elementHandle = await locator.elementHandle();\nawait page.evaluate((el) => el.click(), elementHandle);"
+            "customCode": "await page.locator('tr:has(td:has-text(\"Planned\")) th[data-label=\"Project Task Name\"]:nth-of-type(2)').click();"
           },
           {
             "id": "s12",
