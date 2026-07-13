@@ -47,6 +47,7 @@ export class ProjectTaskDetailPage {
     start: { strategy: 'role' as const, value: 'Start', role: 'button', shadowHost: 'lightning-button', actionKind: 'button' as const },
     plannedEditStatus: { strategy: 'text' as const, value: 'Planned Edit Status', shadowHost: 'records-record-layout-item', actionKind: 'text' as const },
     planned: { strategy: 'text' as const, value: 'Planned', shadowHost: 'records-record-layout-item', actionKind: 'text' as const },
+    verifyStartedCheckboxIsCurrentlyUnchecked: { strategy: 'css' as const, value: '[role="checkbox"][aria-label="Started"]', actionKind: 'generic' as const },
   } as const;
 
   constructor(private readonly page: Page) {}
@@ -362,6 +363,67 @@ export class ProjectTaskDetailPage {
 
   async scrollPlannedIntoView(): Promise<void> {
     await scrollIntoViewWhenVisible(webLocator(this.page, ProjectTaskDetailPage.L.planned));
+  }
+
+
+  async clickVerifyStartedCheckboxIsCurrentlyUnchecked(): Promise<void> {
+    await clickWhenVisible(webLocator(this.page, ProjectTaskDetailPage.L.verifyStartedCheckboxIsCurrentlyUnchecked));
+  }
+
+  async doubleClickVerifyStartedCheckboxIsCurrentlyUnchecked(): Promise<void> {
+    await doubleClickWhenVisible(webLocator(this.page, ProjectTaskDetailPage.L.verifyStartedCheckboxIsCurrentlyUnchecked));
+  }
+
+  async longPressVerifyStartedCheckboxIsCurrentlyUnchecked(): Promise<void> {
+    await longPressWhenVisible(webLocator(this.page, ProjectTaskDetailPage.L.verifyStartedCheckboxIsCurrentlyUnchecked));
+  }
+
+  async expectVerifyStartedCheckboxIsCurrentlyUncheckedVisible(timeoutMs = 30_000): Promise<void> {
+    await expectVisible(webLocator(this.page, ProjectTaskDetailPage.L.verifyStartedCheckboxIsCurrentlyUnchecked), timeoutMs);
+  }
+
+  async expectVerifyStartedCheckboxIsCurrentlyUncheckedHidden(timeoutMs = 30_000): Promise<void> {
+    await expectHidden(webLocator(this.page, ProjectTaskDetailPage.L.verifyStartedCheckboxIsCurrentlyUnchecked), timeoutMs);
+  }
+
+  async expectVerifyStartedCheckboxIsCurrentlyUncheckedText(expected: string, timeoutMs = 30_000): Promise<void> {
+    await expectText(webLocator(this.page, ProjectTaskDetailPage.L.verifyStartedCheckboxIsCurrentlyUnchecked), expected, timeoutMs);
+  }
+
+  async expectVerifyStartedCheckboxIsCurrentlyUncheckedContainsText(substring: string, timeoutMs = 30_000): Promise<void> {
+    await expectContainsText(webLocator(this.page, ProjectTaskDetailPage.L.verifyStartedCheckboxIsCurrentlyUnchecked), substring, timeoutMs);
+  }
+
+  async expectVerifyStartedCheckboxIsCurrentlyUncheckedValue(value: string, timeoutMs = 30_000): Promise<void> {
+    await expectValue(webLocator(this.page, ProjectTaskDetailPage.L.verifyStartedCheckboxIsCurrentlyUnchecked), value, timeoutMs);
+  }
+
+  async expectVerifyStartedCheckboxIsCurrentlyUncheckedEnabled(timeoutMs = 30_000): Promise<void> {
+    await expectEnabled(webLocator(this.page, ProjectTaskDetailPage.L.verifyStartedCheckboxIsCurrentlyUnchecked), timeoutMs);
+  }
+
+  async expectVerifyStartedCheckboxIsCurrentlyUncheckedDisabled(timeoutMs = 30_000): Promise<void> {
+    await expectDisabled(webLocator(this.page, ProjectTaskDetailPage.L.verifyStartedCheckboxIsCurrentlyUnchecked), timeoutMs);
+  }
+
+  async expectVerifyStartedCheckboxIsCurrentlyUncheckedChecked(timeoutMs = 30_000): Promise<void> {
+    await expectChecked(webLocator(this.page, ProjectTaskDetailPage.L.verifyStartedCheckboxIsCurrentlyUnchecked), timeoutMs);
+  }
+
+  async expectVerifyStartedCheckboxIsCurrentlyUncheckedUnchecked(timeoutMs = 30_000): Promise<void> {
+    await expectUnchecked(webLocator(this.page, ProjectTaskDetailPage.L.verifyStartedCheckboxIsCurrentlyUnchecked), timeoutMs);
+  }
+
+  async expectVerifyStartedCheckboxIsCurrentlyUncheckedFocused(timeoutMs = 30_000): Promise<void> {
+    await expectFocused(webLocator(this.page, ProjectTaskDetailPage.L.verifyStartedCheckboxIsCurrentlyUnchecked), timeoutMs);
+  }
+
+  async expectVerifyStartedCheckboxIsCurrentlyUncheckedCount(count: number, timeoutMs = 30_000): Promise<void> {
+    await expectCount(webLocator(this.page, ProjectTaskDetailPage.L.verifyStartedCheckboxIsCurrentlyUnchecked), count, timeoutMs);
+  }
+
+  async scrollVerifyStartedCheckboxIsCurrentlyUncheckedIntoView(): Promise<void> {
+    await scrollIntoViewWhenVisible(webLocator(this.page, ProjectTaskDetailPage.L.verifyStartedCheckboxIsCurrentlyUnchecked));
   }
 
 }

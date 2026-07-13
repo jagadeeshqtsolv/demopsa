@@ -119,18 +119,18 @@
             "value": "https://ukgsf--stest.sandbox.lightning.force.com/lightning/page/home"
           },
           {
-            "id": "s2",
-            "action": "assertVisible",
-            "targetDescription": "Verify global search input is visible",
-            "screenName": "HomePage",
-            "pageObjectMethod": "expectSearchVisible"
-          },
-          {
             "id": "s3",
             "action": "tap",
             "targetDescription": "Focus global search",
             "screenName": "HomePage",
             "pageObjectMethod": "clickGlobalSearch"
+          },
+          {
+            "id": "s2",
+            "action": "assertVisible",
+            "targetDescription": "Verify global search input is visible",
+            "screenName": "HomePage",
+            "pageObjectMethod": "expectGlobalSearchVisible"
           },
           {
             "id": "s4",
