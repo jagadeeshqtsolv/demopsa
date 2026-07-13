@@ -35,7 +35,7 @@
         "id": "step10",
         "action": "tap",
         "targetDescription": "Select row having planned status",
-        "customCode": "const locator = page.locator('tr:has(td:has-text(\"Planned\")) th[data-label=\"Project Task Name\"]').nth(1);\nawait locator.scrollIntoViewIfNeeded();\nawait locator.click({ trial: true });\nawait locator.click({ force: true });\nawait page.waitForTimeout(2000);"
+        "customCode": "const locator = page.locator('tr:has(td:has-text(\"Planned\")) th[data-label=\"Project Task Name\"]').nth(1);\nawait locator.scrollIntoViewIfNeeded();\nawait locator.hover({ position: { x: 5, y: 5 } });\nawait locator.click({ force: true });"
       },
       {
         "id": "step11",
