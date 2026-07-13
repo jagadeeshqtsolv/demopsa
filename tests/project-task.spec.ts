@@ -40,8 +40,11 @@ test('Open Planned Project Task via Global Search and verify detail page element
     await projectTaskPage.clickProjectTasks();
   });
   await test.step('Open a Project Task where Status = Planned', async () => {
-    await page.locator('tr:has(td:has-text("Planned")) th[data-label="Project Task Name"]:nth-of-type(2)').click();
-    await page.keyboard.press('Enter');
+    const plannedRowLocator = page.locator('tr:has(td:has-text("Planned")) th[data-label="Project Task Name"]:nth-of-type(2)');
+    await plannedRowLocator.scrollIntoViewIfNeeded();
+    await plannedRowLocator.click({ trial: true }).catch(async () => {
+      await plannedRowLocator.click();
+    });
     await page.keyboard.press('Enter');
   });
   await test.step('Verify Project Task detail page is visible (project name present)', async () => {
@@ -73,8 +76,11 @@ test('Start a Planned Project Task and verify updates (Status, Started checkbox,
     await commonFlowsPage.userJourneyTillProjectTask();
   });
   await test.step('Select row having planned status', async () => {
-    await page.locator('tr:has(td:has-text("Planned")) th[data-label="Project Task Name"]:nth-of-type(2)').click();
-    await page.keyboard.press('Enter');
+    const plannedRowLocator = page.locator('tr:has(td:has-text("Planned")) th[data-label="Project Task Name"]:nth-of-type(2)');
+    await plannedRowLocator.scrollIntoViewIfNeeded();
+    await plannedRowLocator.click({ trial: true }).catch(async () => {
+      await plannedRowLocator.click();
+    });
     await page.keyboard.press('Enter');
   });
   await test.step('Click — Wait for start button to be visible', async () => {
