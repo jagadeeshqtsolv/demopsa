@@ -10,14 +10,14 @@ export class CommonFlowsPage {
     this.projectTaskPage = new ProjectTaskPage(this.page);
   }
 
-  async userJourneyTillProjectTask(openSalesforceLightningHome: string = 'https://ukgsf--stest.sandbox.lightning.force.com/lightning/page/home', enterProjectNameIntoSearch: string = 'Perry\'s Restaurants, - Q-453446 - Ready Fixed Fee Implementation', waitForSearchSuggestionsResults: string = '1500'): Promise<void> {
+  async userJourneyTillProjectTask(openSalesforceLightningHome: string = 'https://ukgsf--stest.sandbox.lightning.force.com/lightning/page/home', enterProjectNameIntoSearch: string = 'Perry\'s Restaurants, - Q-453446 - Ready Fixed Fee Implementation'): Promise<void> {
     await this.page.goto(openSalesforceLightningHome);
-    await this.page.waitForTimeout(waitForSearchSuggestionsResults);
+    await this.page.waitForTimeout(1500);
     await this.homePage.clickGlobalSearch();
     await this.homePage.expectGlobalSearchVisible();
     await this.homePage.expectSearchVisible();
     await this.homePage.fillSearch(enterProjectNameIntoSearch);
-    await this.page.waitForTimeout(waitForSearchSuggestionsResults);
+    await this.page.waitForTimeout(1500);
     await this.homePage.clickSelectedProject();
     await this.projectTaskPage.expectShowAllVisible();
     await this.projectTaskPage.clickShowAll();
