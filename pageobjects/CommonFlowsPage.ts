@@ -1,38 +1,32 @@
 import type { Page } from "@playwright/test";
 import { HomePage } from "./HomePage";
-import { ProjectRelatedPage } from "./ProjectRelatedPage";
 import { ProjectTaskPage } from "./ProjectTaskPage";
-import { TaskDetailPage } from "./TaskDetailPage";
-import { CommonPage } from "./CommonPage";
+import { ProjectTaskDetailPage } from "./ProjectTaskDetailPage";
 
 export class CommonFlowsPage {
-  private readonly commonPage: CommonPage;
-  private readonly taskDetailPage: TaskDetailPage;
+  private readonly projectTaskDetailPage: ProjectTaskDetailPage;
   private readonly projectTaskPage: ProjectTaskPage;
-  private readonly projectRelatedPage: ProjectRelatedPage;
   private readonly homePage: HomePage;
   constructor(private readonly page: Page) {
     this.homePage = new HomePage(this.page);
-    this.projectRelatedPage = new ProjectRelatedPage(this.page);
     this.projectTaskPage = new ProjectTaskPage(this.page);
-    this.taskDetailPage = new TaskDetailPage(this.page);
-    this.commonPage = new CommonPage(this.page);
+    this.projectTaskDetailPage = new ProjectTaskDetailPage(this.page);
   }
 
-  async userJourneyTillProjectTask(openSalesforceHomeLightning: string = 'https://ukgsf--stest.sandbox.lightning.force.com/lightning/page/home', typeExactProjectNameInSearch: string = 'Perry\'s Restaurants, - Q-453446 - Ready Fixed Fee Implementation'): Promise<void> {
-    await this.page.goto(openSalesforceHomeLightning);
+  async userJourneyTillProjectTask(openSalesforceLightningHome: string = 'https://ukgsf--stest.sandbox.lightning.force.com/lightning/page/home', enterProjectNameIntoSearch: string = 'Perry\'s Restaurants, - Q-453446 - Ready Fixed Fee Implementation', waitForSearchSuggestionsResults: string = '1500'): Promise<void> {
+    await this.page.goto(openSalesforceLightningHome);
     await this.homePage.clickGlobalSearch();
     await this.homePage.expectGlobalSearchVisible();
-    await this.homePage.fillGlobalSearch(typeExactProjectNameInSearch);
-    await this.homePage.expectGlobalSearchVisible();
-    await this.homePage.clickSearchedProject();
-    await this.projectRelatedPage.clickShowAll();
-    await this.projectRelatedPage.clickProjectTasks();
-    await this.projectTaskPage.expectNewVisible();
-    await this.taskDetailPage.clickStatus();
-    await this.commonPage.expectProjectTaskRecordPageLoadedVisible();
-    await this.taskDetailPage.expectStatusContainsText('Planned');
-    await this.taskDetailPage.expectStartVisible();
+    await this.homePage.fillSearch(enterProjectNameIntoSearch);
+    await this.page.waitForTimeout(waitForSearchSuggestionsResults);
+    await this.homePage.clickGlobalSearch();
+    await this.projectTaskPage.expectShowAllVisible();
+    await this.projectTaskPage.clickShowAll();
+    await this.projectTaskPage.clickProjectTasks();
+    await this.projectTaskDetailPage.clickPlanned();
+    await this.projectTaskDetailPage.expectProjectNameVisible();
+    await this.projectTaskDetailPage.expectPlannedVisible();
+    await this.projectTaskDetailPage.expectStartVisible();
   }
 
 }

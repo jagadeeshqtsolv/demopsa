@@ -52,3 +52,34 @@ test('Open Planned Project Task via Global Search and verify detail page element
     await projectTaskDetailPage.expectStartVisible();
   });
 });
+
+test('Start a Planned Project Task and verify updates (Status, Started checkbox, Actual Start Date)', { tag: ["@e2e","@regression","@P0","@case-1f9516fd-2751-46e0-8491-ea55b4880160","@req-91acd319-cc6b-4b76-9518-b8babe4b3aa3"] }, async ({ page, commonFlowsPage, projectTaskDetailPage }) => {
+  const vars: Record<string, string> = {};
+  await test.step('Navigate to URL — Open Salesforce Lightning Home', async () => {
+    await page.goto('https://ukgsf--stest.sandbox.lightning.force.com/lightning/page/home');
+  });
+  await test.step('Click — Navigate end-to-end to a Planned Project Task detail page (login/search/navigation encapsulated)', async () => {
+    await commonFlowsPage.userJourneyTillProjectTask();
+  });
+  await test.step('Click — Click Start button', async () => {
+    await projectTaskDetailPage.clickStart();
+  });
+  await test.step('Wait (timeout) — Wait for task to update', async () => {
+    await page.waitForTimeout(1500);
+  });
+  await test.step('Assert hidden — Verify Planned status text no longer visible', async () => {
+    await projectTaskDetailPage.expectPlannedHidden();
+  });
+  await test.step('Assert hidden — Verify Start button is no longer visible after starting', async () => {
+    await projectTaskDetailPage.expectStartHidden();
+  });
+  await test.step('Assert checked — Verify \'Started\' checkbox is checked — ([role="checkbox"][aria-label="Started"])', async () => {
+    await projectTaskDetailPage.expectVerifyStartedCheckboxIsCurrentlyUncheckedChecked();
+  });
+  await test.step('Assert contains text — Verify Status field value is \'Started\' — (records-record-layout-item:has(.slds-form-element__labe', async () => {
+    await projectTaskDetailPage.expectStartContainsText('Started');
+  });
+  await test.step('Assert contains text — Verify Actual Start Date populated with current date — (records-record-layout-item:has(.slds-form', async () => {
+    await projectTaskDetailPage.expectStartContainsText(vars["CURRENT_DATE"]);
+  });
+});

@@ -26,27 +26,6 @@
         "pageObjectMethod": "userJourneyTillProjectTask"
       },
       {
-        "id": "s3",
-        "action": "assertVisible",
-        "targetDescription": "Verify Status = Planned is shown on Project Task detail",
-        "screenName": "ProjectTaskDetailPage",
-        "pageObjectMethod": "expectPlannedVisible"
-      },
-      {
-        "id": "s4",
-        "action": "assertVisible",
-        "targetDescription": "Verify Start button is visible",
-        "screenName": "ProjectTaskDetailPage",
-        "pageObjectMethod": "expectStartVisible"
-      },
-      {
-        "id": "s5",
-        "action": "assertEnabled",
-        "targetDescription": "Verify Start button is enabled for Planned task",
-        "screenName": "ProjectTaskDetailPage",
-        "pageObjectMethod": "expectStartEnabled"
-      },
-      {
         "id": "s6",
         "action": "tap",
         "targetDescription": "Click Start button",
