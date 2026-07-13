@@ -35,7 +35,7 @@
         "id": "step10",
         "action": "tap",
         "targetDescription": "Select row having planned status",
-        "customCode": "await page.locator('tr:has(td:has-text(\"Planned\")) th[data-label=\"Project Task Name\"]').nth(1).click();"
+        "customCode": "await page.locator('tr:has(td:has-text(\"Planned\")) th[data-label=\"Project Task Name\"]').nth(1).click();\nawait this.page.waitForLoadState('networkidle');"
       },
       {
         "id": "step11",

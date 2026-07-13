@@ -39,7 +39,7 @@
             "id": "step10",
             "action": "tap",
             "targetDescription": "Select row having planned status",
-            "customCode": "await page.locator('tr:has(td:has-text(\"Planned\")) th[data-label=\"Project Task Name\"]').nth(1).click();"
+            "customCode": "await page.locator('tr:has(td:has-text(\"Planned\")) th[data-label=\"Project Task Name\"]').nth(1).click();\nawait this.page.waitForLoadState('networkidle');"
           },
           {
             "id": "step11",
@@ -193,7 +193,7 @@
             "action": "tap",
             "targetDescription": "Open a Project Task where Status = Planned",
             "locatorHint": "table tr:has(td:has-text(\"Planned\")) a[role=\"link\"]",
-            "customCode": "await page.locator('tr:has(td:has-text(\"Planned\")) th[data-label=\"Project Task Name\"]').nth(1).click();"
+            "customCode": "await page.locator('tr:has(td:has-text(\"Planned\")) th[data-label=\"Project Task Name\"]').nth(1).click();\nawait this.page.waitForLoadState('networkidle')"
           },
           {
             "id": "s12",
