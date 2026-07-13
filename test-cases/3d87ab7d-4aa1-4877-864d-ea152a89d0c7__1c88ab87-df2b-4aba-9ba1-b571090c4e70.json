@@ -36,7 +36,9 @@
         "id": "step18",
         "action": "wait",
         "targetDescription": "Wait for page to load",
-        "value": "5000"
+        "locatorHint": "await homePage.expectSearchVisible();",
+        "screenName": "Home",
+        "pageObjectMethod": "expectSearchVisible"
       },
       {
         "id": "s4",

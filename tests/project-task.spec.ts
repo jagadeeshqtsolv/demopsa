@@ -12,8 +12,8 @@ test('Open Planned Project Task via Global Search and verify detail page element
   await test.step('Assert visible — Verify global search input is visible', async () => {
     await homePage.expectGlobalSearchVisible();
   });
-  await test.step('Wait (timeout) — Wait for page to load', async () => {
-    await page.waitForTimeout(5000);
+  await test.step('Wait (timeout) — Wait for page to load — (await homePage.expectSearchVisible();)', async () => {
+    await homePage.expectSearchVisible();
   });
   await test.step('Fill — Enter project name into search', async () => {
     await homePage.fillSearch('Perry\'s Restaurants, - Q-453446 - Ready Fixed Fee Implementation');
@@ -63,6 +63,12 @@ test('Start a Planned Project Task and verify updates (Status, Started checkbox,
   });
   await test.step('Click — Navigate end-to-end to a Planned Project Task detail page (login/search/navigation encapsulated)', async () => {
     await commonFlowsPage.userJourneyTillProjectTask();
+  });
+  await test.step('Select row having planned status', async () => {
+    await page.locator('tr:has(td:has-text("Planned")) th[data-label="Project Task Name"]').nth(1).click();
+  });
+  await test.step('Click — Wait for start button to be visible', async () => {
+    await projectTaskDetailPage.expectStartVisible();
   });
   await test.step('Click — Click Start button', async () => {
     await projectTaskDetailPage.clickStart();

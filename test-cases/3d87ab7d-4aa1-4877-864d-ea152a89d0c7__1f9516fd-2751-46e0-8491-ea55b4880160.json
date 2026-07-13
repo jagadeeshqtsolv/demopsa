@@ -26,6 +26,19 @@
         "pageObjectMethod": "userJourneyTillProjectTask"
       },
       {
+        "id": "step10",
+        "action": "tap",
+        "targetDescription": "Select row having planned status",
+        "customCode": "await page.locator('tr:has(td:has-text(\"Planned\")) th[data-label=\"Project Task Name\"]').nth(1).click();"
+      },
+      {
+        "id": "step11",
+        "action": "tap",
+        "targetDescription": "Wait for start button to be visible",
+        "screenName": "ProjectTaskDetail",
+        "pageObjectMethod": "expectStartVisible"
+      },
+      {
         "id": "s6",
         "action": "tap",
         "targetDescription": "Click Start button",
