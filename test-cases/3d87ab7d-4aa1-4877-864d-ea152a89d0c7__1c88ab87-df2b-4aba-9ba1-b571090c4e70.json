@@ -95,7 +95,7 @@
         "action": "tap",
         "targetDescription": "Open a Project Task where Status = Planned",
         "locatorHint": "table tr:has(td:has-text(\"Planned\")) a[role=\"link\"]",
-        "customCode": "await page.locator('tr:has(td:has-text(\"Planned\")) th[data-label=\"Project Task Name\"]').nth(1).click();\nawait page.waitForLoadState('networkidle')"
+        "customCode": "await page.locator('tr:has(td:has-text(\"Planned\")) th[data-label=\"Project Task Name\"]').nth(1).click();\nawait page.await page.waitForTimeout(2000);"
       },
       {
         "id": "s12",

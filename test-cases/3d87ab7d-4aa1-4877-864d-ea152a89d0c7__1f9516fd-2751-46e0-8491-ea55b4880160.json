@@ -22,7 +22,7 @@
         "id": "step12",
         "action": "wait",
         "targetDescription": "Wait for url to load",
-        "customCode": "await page.waitForLoadState('networkidle')"
+        "customCode": "await page.await page.waitForTimeout(2000);"
       },
       {
         "id": "s2",
@@ -35,7 +35,7 @@
         "id": "step10",
         "action": "tap",
         "targetDescription": "Select row having planned status",
-        "customCode": "await page.locator('tr:has(td:has-text(\"Planned\")) th[data-label=\"Project Task Name\"]').nth(1).click();\nawait page.waitForLoadState('networkidle');"
+        "customCode": "await page.locator('tr:has(td:has-text(\"Planned\")) th[data-label=\"Project Task Name\"]').nth(1).click();\nawait page.await page.waitForTimeout(2000);"
       },
       {
         "id": "step11",
