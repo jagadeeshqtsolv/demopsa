@@ -171,7 +171,7 @@
             "id": "s12",
             "action": "assertVisible",
             "targetDescription": "Verify Project Task detail page is visible (project name present)",
-            "screenName": "ProjectTaskDetailPage",
+            "screenName": "ProjectTaskDetail",
             "pageObjectMethod": "expectProjectNameVisible"
           },
           {
