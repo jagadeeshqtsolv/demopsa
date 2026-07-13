@@ -34,7 +34,7 @@ test('Open Planned Project Task via Global Search and verify detail page element
     await projectTaskPage.clickProjectTasks();
   });
   await test.step('Open a Project Task where Status = Planned', async () => {
-    await page.locator('tr:has(td:nth-child(5):has-text("Planned")) th[data-label="Project Task Name"]').first().click();
+    await page.locator('tr:has(td:has-text("Planned")) th[data-label="Project Task Name"]').nth(1).click();
   });
   await test.step('Assert visible — Verify Project Task detail page is visible (project name present)', async () => {
     await projectTaskDetailPage.expectProjectNameVisible();
