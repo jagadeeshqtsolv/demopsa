@@ -26,7 +26,7 @@
             "id": "step12",
             "action": "wait",
             "targetDescription": "Wait for url to load",
-            "customCode": "await page.await page.waitForTimeout(2000);"
+            "value": "5000"
           },
           {
             "id": "s2",
@@ -115,6 +115,12 @@
             "action": "openUrl",
             "targetDescription": "Open Salesforce Lightning Home",
             "value": "https://ukgsf--stest.sandbox.lightning.force.com/lightning/page/home"
+          },
+          {
+            "id": "step19",
+            "action": "wait",
+            "targetDescription": "wait for page load",
+            "value": "5000"
           },
           {
             "id": "s3",

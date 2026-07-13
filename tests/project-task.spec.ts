@@ -6,6 +6,9 @@ test('Open Planned Project Task via Global Search and verify detail page element
   await test.step('Navigate to URL — Open Salesforce Lightning Home', async () => {
     await page.goto('https://ukgsf--stest.sandbox.lightning.force.com/lightning/page/home');
   });
+  await test.step('Wait (timeout) — wait for page load', async () => {
+    await page.waitForTimeout(5000);
+  });
   await test.step('Click — Focus global search', async () => {
     await homePage.clickGlobalSearch();
   });
@@ -65,8 +68,8 @@ test('Start a Planned Project Task and verify updates (Status, Started checkbox,
   await test.step('Navigate to URL — Open Salesforce Lightning Home', async () => {
     await page.goto('https://ukgsf--stest.sandbox.lightning.force.com/lightning/page/home');
   });
-  await test.step('Wait for url to load', async () => {
-    await page.waitForTimeout(2000);
+  await test.step('Wait (timeout) — Wait for url to load', async () => {
+    await page.waitForTimeout(5000);
   });
   await test.step('Click — Navigate end-to-end to a Planned Project Task detail page (login/search/navigation encapsulated)', async () => {
     await commonFlowsPage.userJourneyTillProjectTask();

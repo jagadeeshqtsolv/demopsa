@@ -22,7 +22,7 @@
         "id": "step12",
         "action": "wait",
         "targetDescription": "Wait for url to load",
-        "customCode": "await page.await page.waitForTimeout(2000);"
+        "value": "5000"
       },
       {
         "id": "s2",

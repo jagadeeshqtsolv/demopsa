@@ -19,6 +19,12 @@
         "value": "https://ukgsf--stest.sandbox.lightning.force.com/lightning/page/home"
       },
       {
+        "id": "step19",
+        "action": "wait",
+        "targetDescription": "wait for page load",
+        "value": "5000"
+      },
+      {
         "id": "s3",
         "action": "tap",
         "targetDescription": "Focus global search",
