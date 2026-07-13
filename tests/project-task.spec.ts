@@ -21,8 +21,8 @@ test('Open Planned Project Task via Global Search and verify detail page element
   await test.step('Wait (timeout) — Wait for search suggestions/results', async () => {
     await page.waitForTimeout(1500);
   });
-  await test.step('Open project record from search results - Custom Code', async () => {
-    await page.getByText("Perry's", { exact: true }).click();
+  await test.step('Click — Open project record from search results - Custom Code — (a:has-text("Perry\'s Restaurants, - Q-453446 - Ready Fix', async () => {
+    await homePage.clickSelectedProject();
   });
   await test.step('Assert visible — Verify Show All in related lists is visible', async () => {
     await projectTaskPage.expectShowAllVisible();

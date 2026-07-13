@@ -45,6 +45,7 @@ export class HomePage {
     doMoreWithSearch: { strategy: 'css' as const, value: 'div', shadowHost: '#preview', actionKind: 'generic' as const },
     search: { strategy: 'placeholder' as const, value: 'Search...', shadowHost: 'lightning-primitive-input-simple', actionKind: 'textbox' as const },
     globalSearch: { strategy: 'role' as const, value: 'Search', role: 'button', actionKind: 'button' as const },
+    selectedProject: { strategy: 'text' as const, value: "Perry's", exact: true, actionKind: 'generic' as const },
   } as const;
 
   constructor(private readonly page: Page) {}
@@ -232,6 +233,10 @@ export class HomePage {
 
   async scrollGlobalSearchIntoView(): Promise<void> {
     await scrollIntoViewWhenVisible(webLocator(this.page, HomePage.L.globalSearch));
+  }
+
+  async clickSelectedProject(): Promise<void> {
+    await clickWhenVisible(webLocator(this.page, HomePage.L.selectedProject));
   }
 
 }

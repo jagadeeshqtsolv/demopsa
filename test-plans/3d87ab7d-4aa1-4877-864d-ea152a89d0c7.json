@@ -151,7 +151,8 @@
             "action": "tap",
             "targetDescription": "Open project record from search results - Custom Code",
             "locatorHint": "a:has-text(\"Perry's Restaurants, - Q-453446 - Ready Fixed Fee Implementation\")",
-            "customCode": "await page.getByText(\"Perry's\", { exact: true }).click();"
+            "screenName": "Home",
+            "pageObjectMethod": "clickSelectedProject"
           },
           {
             "id": "s7",
