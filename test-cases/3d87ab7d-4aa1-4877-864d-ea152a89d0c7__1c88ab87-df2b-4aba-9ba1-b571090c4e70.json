@@ -101,7 +101,7 @@
         "action": "tap",
         "targetDescription": "Open a Project Task where Status = Planned",
         "locatorHint": "table tr:has(td:has-text(\"Planned\")) a[role=\"link\"]",
-        "customCode": "const locator = page.locator('tr:has(td:has-text(\"Planned\")) th[data-label=\"Project Task Name\"]').nth(1);\nawait locator.scrollIntoViewIfNeeded();\nawait locator.hover({ position: { x: 5, y: 5 } });\nawait locator.dblclick({ force: true });"
+        "customCode": "const locator = page.locator('tr:has(td:has-text(\"Planned\")) th[data-label=\"Project Task Name\"]').nth(1);\nawait locator.scrollIntoViewIfNeeded();\nconst elementHandle = await locator.elementHandle();\nawait page.evaluate((el) => el.click(), elementHandle);"
       },
       {
         "id": "s12",

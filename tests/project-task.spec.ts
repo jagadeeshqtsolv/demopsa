@@ -42,8 +42,8 @@ test('Open Planned Project Task via Global Search and verify detail page element
   await test.step('Open a Project Task where Status = Planned', async () => {
     const locator = page.locator('tr:has(td:has-text("Planned")) th[data-label="Project Task Name"]').nth(1);
     await locator.scrollIntoViewIfNeeded();
-    await locator.hover({ position: { x: 5, y: 5 } });
-    await locator.dblclick({ force: true });
+    const elementHandle = await locator.elementHandle();
+    await page.evaluate((el) => el.click(), elementHandle);
   });
   await test.step('Verify Project Task detail page is visible (project name present)', async () => {
     await expect(page.getByRole('link', { name: "Perry's Restaurants, - Q-" })).toBeVisible();
@@ -76,8 +76,8 @@ test('Start a Planned Project Task and verify updates (Status, Started checkbox,
   await test.step('Select row having planned status', async () => {
     const locator = page.locator('tr:has(td:has-text("Planned")) th[data-label="Project Task Name"]').nth(1);
     await locator.scrollIntoViewIfNeeded();
-    await locator.hover({ position: { x: 5, y: 5 } });
-    await locator.dblclick({ force: true });
+    const elementHandle = await locator.elementHandle();
+    await page.evaluate((el) => el.click(), elementHandle);
   });
   await test.step('Click — Wait for start button to be visible', async () => {
     await projectTaskDetailPage.expectStartVisible();
