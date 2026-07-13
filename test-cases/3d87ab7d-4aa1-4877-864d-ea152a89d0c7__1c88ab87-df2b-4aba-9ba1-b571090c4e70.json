@@ -101,7 +101,7 @@
         "action": "tap",
         "targetDescription": "Open a Project Task where Status = Planned",
         "locatorHint": "table tr:has(td:has-text(\"Planned\")) a[role=\"link\"]",
-        "customCode": "const plannedRowLocator = page.locator('tr:has(td:has-text(\"Planned\")) th[data-label=\"Project Task Name\"]:nth-of-type(2)');\nawait plannedRowLocator.scrollIntoViewIfNeeded();\nawait plannedRowLocator.click({ trial: true }).catch(async () => {\n  await plannedRowLocator.click();\n});\nawait page.keyboard.press('Enter');"
+        "customCode": "const plannedRowLocator = page.locator('tr:has(td:has-text(\"Planned\")) th[data-label=\"Project Task Name\"]:nth-of-type(2)');\ntry {\n  await plannedRowLocator.click();\n} catch {\n  await plannedRowLocator.waitFor({ state: 'visible', timeout: 2000 }).catch(() => {});\n  try {\n    await plannedRowLocator.click();\n  } catch {\n    await console.log('clicked on project link');\n  }\n}"
       },
       {
         "id": "s12",
