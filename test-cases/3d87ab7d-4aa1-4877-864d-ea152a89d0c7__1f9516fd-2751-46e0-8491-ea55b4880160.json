@@ -35,7 +35,7 @@
         "id": "step10",
         "action": "tap",
         "targetDescription": "Select row having planned status",
-        "customCode": "await page.getByText('Planned').nth(1).locator('xpath=ancestor::tr//a').first().click();"
+        "customCode": "await page.locator('tr:has(td:text-matches(\"Planned\", \"i\")) a').first().click();"
       },
       {
         "id": "step11",

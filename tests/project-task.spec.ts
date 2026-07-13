@@ -40,7 +40,7 @@ test('Open Planned Project Task via Global Search and verify detail page element
     await projectTaskPage.clickProjectTasks();
   });
   await test.step('Open a Project Task where Status = Planned', async () => {
-    await page.getByText('Planned').nth(1).locator('xpath=ancestor::tr//a').first().click();
+    await page.locator('tr:has(td:text-matches("Planned", "i")) a').first().click();
   });
   await test.step('Verify Project Task detail page is visible (project name present)', async () => {
     await expect(page.getByRole('link', { name: "Perry's Restaurants, - Q-" })).toBeVisible();
@@ -71,7 +71,7 @@ test('Start a Planned Project Task and verify updates (Status, Started checkbox,
     await commonFlowsPage.userJourneyTillProjectTask();
   });
   await test.step('Select row having planned status', async () => {
-    await page.getByText('Planned').nth(1).locator('xpath=ancestor::tr//a').first().click();
+    await page.locator('tr:has(td:text-matches("Planned", "i")) a').first().click();
   });
   await test.step('Click — Wait for start button to be visible', async () => {
     await projectTaskDetailPage.expectStartVisible();

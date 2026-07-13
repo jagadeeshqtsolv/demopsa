@@ -101,7 +101,7 @@
         "action": "tap",
         "targetDescription": "Open a Project Task where Status = Planned",
         "locatorHint": "table tr:has(td:has-text(\"Planned\")) a[role=\"link\"]",
-        "customCode": "await page.getByText('Planned').nth(1).locator('xpath=ancestor::tr//a').first().click();"
+        "customCode": "await page.locator('tr:has(td:text-matches(\"Planned\", \"i\")) a').first().click();"
       },
       {
         "id": "s12",
