@@ -178,7 +178,8 @@
             "action": "assertVisible",
             "targetDescription": "Verify Project Task detail page is visible (project name present)",
             "screenName": "ProjectTaskDetail",
-            "pageObjectMethod": "expectProjectNameVisible"
+            "pageObjectMethod": "expectProjectNameVisible",
+            "customCode": "await expect(page.getByRole('link', { name: \"Perry's Restaurants, - Q-\" })).toBeVisible();"
           },
           {
             "id": "s13",
